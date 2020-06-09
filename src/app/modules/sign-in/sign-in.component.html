@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 mt-3">
+      <h1 class="text-center">Sign In</h1>
+      <form [formGroup]="form" (ngSubmit)="onSignInSubmit()">
+        <app-input
+          [control]="form.get('username')"
+          label="Email"
+          placeholder=""
+          type="text"
+        ></app-input>
+        <app-input
+          [control]="form.get('password')"
+          label="Password"
+          placeholder=""
+          type="{{passwordType}}"
+        ></app-input>
+        <div class="mb-2">
+          <button type="button" class="btn btn-info"
+          (click)="passwordType == 'password' ? passwordType = 'text' : passwordType = 'password'">
+            show Passsword
+          </button>
+        </div>
+        <!-- <div class="d-flex">
+           <div class="form-group">
+            <label class="label mr-2">Male</label>
+            <input type="radio" value="male" name="gender" />
+          </div> -->
+
+        <!-- <div class="form-group ml-3">
+            <label class="label mr-2">FeMale</label>
+            <input type="radio" value="female" name="gender" />
+          </div>
+          <div class="form-group ml-3">
+            <label class="label mr-2">Other</label>
+            <input type="radio" value="Other" name="gender" />
+          </div> -->
+        <p *ngIf="loginFialdError" class="m-0 errorRedClass">
+          {{ loginFialdError }}
+        </p>
+        <button type="submit" class="btn btn-primary">
+          Sign In
+        </button>
+      </form>
+      <hr />
+      <div class="d-flex justify-content-center font-weigth-bold">
+        <p class="mr-3 lead">Dont Have An ACCOUNT</p>
+        <a routerLink="../signUp" class="lead"> SIGN UP</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row flex-end my-2">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input
+          class="form-control"
+          placeholder="Search Movies.....  "
+          #searchInputElement
+          (onchange)="trimiming($event.target.value)"
+        />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <div class="d-flex align-items-center">
+          <label
+            for="sort-by-select-options"
+            [ngStyle]="{ 'white-space': 'nowrap' }"
+            class="label"
+            >Sort by:</label
+          >
+          <select
+            placeholder="Select Movies By "
+            class="form-control"
+            id="sort-by-select-options"
+            (change)="setSortBy($event.target.value)"
+          >
+            <option *ngFor="let feild of sortByFeild" [value]="feild.value">{{
+              feild.label
+            }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let movie of movies">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card mb-4">
+          <div class="card-img">
+            <img
+              [src]="movie.poster"
+              (error)="movie.poster = defaultImage"
+              class="card-img-top img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<app-pop-up
+  (onclose)="togglleModalVisibilty()"
+  *ngIf="showModal"
+  (onOk)="onRemoveMovie(moveieIdToRemove)"
+></app-pop-up>
+<!--  Pagination  -->
+
+<div class="d-flex justify-content-center">
+  <ngb-pagination
+    [collectionSize]="totalCount"
+    [page]="1"
+    [pageSize]="pageSize"
+    aria-label="Default pagination"
+    (pageChange)="onChangePageNumber($event)"
+  ></ngb-pagination>
+</div>
+<!-- <hr />
+  
+
+<pre>Current page: {{ page }}</pre> -->
+
+<!-- 
+
+   *ngIf="authenticationService.currentUser.isAdmin" 
+-->

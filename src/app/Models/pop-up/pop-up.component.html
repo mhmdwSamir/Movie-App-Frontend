@@ -1,0 +1,26 @@
+<div class="modal d-block">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title">Modal title</h5> -->
+        <button type="button" class="close" (click)="onclose.emit()"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are YOU SURE YOU WANT TO DELETE IT .</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button (click)="onOk.emit()" type="button" class="btn btn-primary">
+          Ok
+        </button>
+        <button
+          (click)="onclose.emit()"
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

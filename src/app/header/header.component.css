@@ -1,0 +1,19 @@
+.navbar {
+  background-color: brown;
+}
+.nav-link {
+  font-size: 20px;
+  font-weight: bolder;
+  color: white;
+}
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .nav-link {
+  color: white !important;
+}
+
+.navbar-light .navbar-nav .active {
+  background-color: #751c1c;
+}

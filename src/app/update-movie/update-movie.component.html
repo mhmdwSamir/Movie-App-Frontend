@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-12 col-sm-6">
+      <form [formGroup]="form" (ngSubmit)="OnUpdateSubmit()">
+        <div class="form-group">
+          <label for="movieName"> Movie Name </label>
+          <input
+            id="movieName"
+            type="text"
+            formControlName="name"
+            class="form-control"
+          />
+          <p class="lead alert text-danger" *ngIf="httpError">
+            {{ httpError }}
+          </p>
+        </div>
+        <!-- Handling Errors in Filed MovieName -->
+        <ng-container *ngIf="form.get('name').errors as nameControlErrors">
+          <p class="lead text-danger" *ngIf="nameControlErrors.required">
+            Name Is Required
+          </p>
+          <p
+            class="lead text-danger"
+            *ngIf="nameControlErrors.minlength as minLength"
+          >
+            required length For Movie Name is {{ minLength.requiredLength }} at
+            least but Your Word length is {{ minLength.actualLength }}
+          </p>
+        </ng-container>
+
+        <div class="form-group">
+          <label for="moviePoster"> Movie Poster</label>
+          <input
+            id="moviePoster"
+            type="text"
+            formControlName="poster"
+            class="form-control"
+          />
+          <!-- Handling Errors in Filed MoviePoster -->
+          <ng-container
+            *ngIf="
+              form.get('poster').touched &&
+              form.get('poster').errors as posterController
+            "
+          >
+            <p class="text-danger" *ngIf="posterController.required">
+              you must provide A poster
+            </p>
+            <p class="text-danger" *ngIf="posterController.isNotLink">
+              invalid poster image , please provide a valid url
+            </p>
+          </ng-container>
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-success mx-1">
+            Save Changes
+          </button>
+          <button type="button" class="btn btn-light mx-2" routerLink="">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-8 col-12 col-sm-6">
+      <p>{{ movie?.name }}</p>
+      <img class="w-100 img-view" [src]="movie?.poster" />
+    </div>
+  </div>
+</div>

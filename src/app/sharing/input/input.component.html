@@ -1,0 +1,33 @@
+<div class="form-group">
+  <label style="font-size: 25px;"> {{ label }} </label>
+  <input
+    class="form-control"
+    [formControl]="control"
+    [type]="type"
+    [placeholder]="placeholder"
+  />
+  <ng-container *ngIf="showError()">
+    <p *ngIf="control.errors.required" [ngClass]="AddingErrorStyling()">
+      {{ label }} Is Required... tryAgain
+    </p>
+    <p
+      *ngIf="control.errors.minlength as minlengthError"
+      [ngClass]="AddingErrorStyling()"
+    >
+      {{ label }} should be at least {{ minlengthError.requiredLength }} Char
+      but You Enterd {{ minlengthError.actualLength }} Char
+    </p>
+
+    <p
+      *ngIf="control.errors.maxlength as maxlengthError"
+      [ngClass]="AddingErrorStyling()"
+    >
+      {{ label }} should be at moast {{ maxlengthError.requiredLength }} Char
+      but You Enterd {{ maxlengthError.actualLength }} Char
+    </p>
+    <p *ngIf="control.errors.pattern" [ngClass]="AddingErrorStyling()">
+      Invalid Format Try Again ...
+    </p>
+  </ng-container>
+</div>
+<!-- {{ control.errors | json }} -->

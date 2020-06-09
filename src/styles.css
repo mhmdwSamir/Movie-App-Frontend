@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/fonts/fonts.css';
+
+
+body {
+  position: relative;
+  font-family: 'Open Sans';
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+}
+.ng-touched.ng-invalid:focus {
+  box-shadow: 0 0 0 0.2rem #ff00002b !important;
+}
+input:focus {
+  outline: 0;
+}
+
+.errorRedClass {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  position: relative;
+  /* outline: none;
+  border: none; */
+}
+
+.errorRedClass::before {
+  content: "*";
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  right: calc(100% + 5px);
+  top: 50%;
+  transform: translateY(-50%);
+}

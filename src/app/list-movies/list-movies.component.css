@@ -1,0 +1,17 @@
+/* .IconRemove {
+  user-select: none;
+} */
+/* .posterImage {
+  max-height: 450px;
+} */
+.posterImage:hover {
+  cursor: pointer;
+}
+.setting {
+  max-width: 300px;
+}
+.card-img-top {
+  width: 100%;
+  height: 35vw;
+  object-fit: cover;
+}

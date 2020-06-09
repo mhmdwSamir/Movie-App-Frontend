@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    src: url('./OpenSans-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    src: url('./OpenSans-SemiBold.ttf');
+    /* unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; */
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-weight: 200;
+    src: url('./OpenSans-Light.ttf');
+    /* unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; */
+  }
